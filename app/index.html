@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Page du cours IWA 2015">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IWA 2015</title>
+
+  <meta name="theme-color" content="#3372DF">
+
+  <!-- Page styles -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/custom.css">
+</head>
+<body>
+<header class="app-bar promote-layer">
+  <div class="app-bar-container">
+    <button class="menu"><img src="images/hamburger.svg" alt="Menu"></button>
+    <h1 class="logo">Interface Web Avancée <strong>2015</strong></h1>
+  </div>
+</header>
+<nav class="navdrawer-container promote-layer">
+  <h4>Navigation</h4>
+  <ul>
+    <li><a href="#cours" class="actif">Cours</a></li>
+    <li><a href="#tp">TP & Exam</a></li>
+    <li><a href="#liens">Liens</a></li>
+  </ul>
+</nav>
+<main>
+  <p>Ce cours d'IWA a pour but de vous fournir le nécessaire pour vous rendre autonome dans la création d'une application web dynamique (RIA).
+    Une "Rich internet application" est une application qui possède les fonctionnalités avancées d'un client lourd (logiciel à installer localement) et les avantages d'un client léger (interface s'exécutant dans le navigateur couplé à un serveur).
+  </p>
+  <hr>
+  <div class="row" id="questionnaire" >
+    <h2 >Questionnaire</h2>
+    <form id="formDayOne">
+      <div class="row"  id="step1">
+        <div class="col s12 m6 l6">
+          <div class="row">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="first_name" name="firstName" type="text" class="validate" required>
+                <label for="first_name">Nom</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" name="lastName" type="text" class="validate" required>
+                <label for="last_name">Prénom</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="username" name="username" type="text" class="validate" required>
+                <label for="username">Username</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="class" name="class" type="text" class="validate">
+                <label for="class">Class</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" name="email" type="email" class="validate">
+                <label for="email">Email - Si different @esme.fr</label>
+              </div>
+            </div>
+            <div class="row" style="display: none">
+              <div class="input-field col s12">
+                <input id="github" name="github" type="text" class="validate">
+                <label for="github">Github</label>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light next">
+              Next
+            </button>
+          </div>
+        </div>
+        <div class="col s12 m6 l6">
+          <div class="row">
+            <p>Quand souhaitez vous rendre le TP</p>
+            <div>
+              <input class="with-gap" name="dateTP" type="radio" id="atEnd" value="atEnd" required />
+              <label for="atEnd">à la fin du TP</label>
+            </div>
+            <div>
+              <input class="with-gap" name="dateTP" type="radio"  id="toNight" value="toNight" />
+              <label for="toNight">à 00h le soir du TP</label>
+            </div>
+            <div>
+              <input class="with-gap" name="dateTP" type="radio" id="nextSunday" value="nextSunday"  />
+              <label for="nextSunday">à 00h le dimanche</label>
+            </div>
+            <div>
+              <input class="with-gap" name="dateTP" type="radio" id="nextWeek" value="nextWeek" />
+              <label for="nextWeek">la semaine suivante</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="trinome" name="groupID" type="text" class="validate" required>
+              <label for="trinome">N° Trinome</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="step2">
+        <div class="col m6">
+          Veuillez indiquer votre niveau de maitrise de ces technologies :
+          <ul>
+            <li>1 - Je ne connais pas</li>
+            <li>2 - J'ai déjà essayé </li>
+            <li>3 - Je me debrouille </li>
+            <li>4 - Je suis autonome </li>
+            <li>5 - Pas besoin de cours, je connais tout </li>
+          </ul>
+          <button class="btn waves-effect waves-light next">Submit</button>
+        </div>
+        <div class="col m6">
+          <p class="range-field">
+            HTML
+            <input type="range" id="htmlRange" min="1" max="5" />
+          </p>
+          <p class="range-field">
+            CSS
+            <input type="range" id="cssRAnge" min="1" max="5" />
+          </p>
+          <p class="range-field">
+            JAVASCRIPT
+            <input type="range" id="jsRange" min="1" max="5" />
+          </p>
+        </div>
+      </div>
+      <div class="row" id="step3">
+        Un email vous a été envoyé sur votre adresse esme.fr, il contient un accès pour la plateforme de rendu de TP.
+        Merci de verifier le lien dans le mail.
+      </div>
+    </form>
+  </div>
+  <div class="row">
+    <div class="col m12 ">
+      <h2 id="cours">Cours</h2>
+      <ul>
+        <li> <a href="/pdf/IWA2015_1.pdf">Session #1</a> </li>
+        <li> <a href="/pdf/IWA2015_2.pdf">Session #2</a> </li>
+        <li> <a href="/pdf/TD_IWA_2015.pdf">TD #1 - Search Engine</a> </li>
+        <li>Fil rouge : <a href="https://github.com/torwood3/todolist">Source</a></li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m12">
+      <h2 id="tp">TP & Exam</h2>
+      L'objectif du TP est la réalisation, par trinome, d'une application web. Les années précedentes, le sujet était de réaliser un twitter like.
+      Cette année, il vous sera demandé de faire une appliation permettant ...
+      <br/><br/>
+      L'examen sera composé  d'un QCM et de questions. Le QCM représente 75% de la note.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col m12 ">
+      <h2 id="liens">Liens utiles</h2>
+      <ol>
+        <li>HTML
+          <ul>
+            <li>W3School : <a href="http://www.w3schools.com/">http://www.w3schools.com/</a></li>
+            <li>W3C : <a href="http://www.w3.org/">http://www.w3.org/</a></li>
+          </ul>
+        </li>
+        <li>CSS
+          <ul>
+            <li>BootStrap : <a href="http://getbootstrap.com">http://getbootstrap.com</a></li>
+            <li>Materialize : <a href="http://materializecss.com">http://materializecss.com</a></li>
+          </ul>
+        </li>
+        <li>JavaScript
+          <ul>
+            <li>jQuery : <a href="https://jquery.com/">https://jquery.com/</a></li>
+            <li>AngularJS 1.x : <a href="https://angularjs.org/">https://angularjs.org/</a></li>
+            <li>AngularJS 2.x : <a href="https://angular.io/">https://angular.io/</a></li>
+          </ul>
+        </li>
+        <li>Tools
+          <ul>
+            <li>GulpJS : <a href="http://gulpjs.com/">http://gulpjs.com/</a></li>
+            <li>JsHint : <a href="http://jshint.com/">http://jshint.com/</a></li>
+            <li>W3C Markup Validation Service : <a href="https://validator.w3.org/">https://validator.w3.org/</a></li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+</main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+  <!-- build:js(app/) scripts/main.min.js -->
+    <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+
+  <!-- Built with love using Web Starter Kit -->
+</body>
+</html>

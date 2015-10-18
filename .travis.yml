@@ -1,0 +1,13 @@
+sudo: false
+language: node_js
+node_js:
+  - "0.12"
+deploy:
+  provider: heroku
+  buildpack: nodejs
+  api_key: $HEROKU_KEY
+  app: IWA2015
+  run: "npm install && npm start"
+notifications:
+    email:
+        on_failure: always
