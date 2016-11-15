@@ -72,15 +72,41 @@ gulp.task('styles', function () {
     // Concatenate and minify styles
     .pipe($.if('*.css', $.csso()))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist/styles/'))
     .pipe($.size({title: 'styles'}));
+});
+
+gulp.task('less', function () {
+  var AUTOPREFIXER_BROWSERS = [
+    'ie >= 10',
+    'ie_mob >= 10',
+    'ff >= 30',
+    'chrome >= 34',
+    'safari >= 7',
+    'opera >= 23',
+    'ios >= 7',
+    'android >= 4.4',
+    'bb >= 10'
+  ];
+
+  return gulp.src('app/**/*.less')
+      .pipe($.changed('.tmp/styles', {extension: '.css'}))
+      .pipe($.sourcemaps.init())
+      .pipe($.less())
+      .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
+      .pipe(gulp.dest('.tmp'))
+      // Concatenate and minify styles
+      .pipe($.if('*.css', $.csso()))
+      .pipe($.sourcemaps.write())
+      .pipe(gulp.dest('dist'))
+      .pipe($.size({title: 'styles'}));
 });
 
 // Concatenate and minify JavaScript
 gulp.task('scripts', function () {
-  var sources = ['./app/scripts/main.js'];
+  var sources = ['./app/scripts/*.js'];
   return gulp.src(sources)
-    .pipe($.concat('main.min.js'))
+    //.pipe($.concat('main.min.js'))
     .pipe($.uglify({preserveComments: 'some'}))
     // Output files
     .pipe(gulp.dest('dist/scripts'))
@@ -96,6 +122,7 @@ gulp.task('html', function () {
     // Remove any unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
+/*
     .pipe($.if('*.css', $.uncss({
       html: [
         'app/index.html'
@@ -106,7 +133,7 @@ gulp.task('html', function () {
         /.app-bar.open/
       ]
     })))
-
+*/
     // Concatenate and minify styles
     // In case you are still using useref build blocks
     .pipe($.if('*.css', $.csso()))
@@ -126,7 +153,7 @@ gulp.task('clean', del.bind(null, ['.tmp', 'dist/*', '!dist/.git'], {dot: true})
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
   runSequence(
-    'styles',
+    'styles', 'less',
     ['html', 'scripts', 'images', 'fonts', 'copy'], cb);
 });
 
